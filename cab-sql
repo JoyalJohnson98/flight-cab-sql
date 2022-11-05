@@ -1,0 +1,33 @@
+ create database cab;
+ use cab;
+ create table passenger(
+pass_id int primary key not null,
+title varchar(10) not null,
+fname varchar(50),
+lname varchar(50),
+gender varchar(50),
+mobile_no varchar(50),
+email varchar(50),
+canwe_contact varchar(50),
+c_preference varchar(50));
+
+
+
+
+create table booking(
+customer_id int PRIMARY KEY NOT NULL,
+title varchar(10) not null,
+customer_name varchar(50),
+address varchar(100),
+guest_name varchar(50) not null,
+cab_pickup varchar(50),
+drop_address varchar(50),
+cab_fromdate date,
+cab_to date,
+constraint FK_cab_customer_id foreign key(customer_id) references passenger(pass_id)
+ );
+ create table login(
+ id int primary key not null,
+ username varchar(50) not null,
+ password varchar(50) not null,
+ constraint FK_cab_id foreign key(id) references passenger(pass_id));
